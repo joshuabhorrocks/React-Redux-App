@@ -6,12 +6,12 @@ export const fetchStats = () => {
         axios.get("http://stapi.co/api/v1/rest/season/search")
             .then(res => {
                 console.log("Axios request: ", res)
-                dispatch({type: "FETCH_WAR_SUCCESS", payload: res.data})
+                dispatch({type: "FETCH_STATS_SUCCESS", payload: res.data})
             })
             .catch(err => {
-                console.log(err.response)
+                console.log("Error: ", err.response)
                 dispatch ({
-                    type: "FETCH_WAR_FAILURE",
+                    type: "FETCH_STATS_FAILURE",
                     payload: `Error ${err.response.status}: ${err.response.data}`
                 });
             });

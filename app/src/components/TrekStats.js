@@ -2,12 +2,13 @@ import React, {useEffect} from "react";
 import {connect} from "react-redux";
 import Loader from "react-loader-spinner";
 
+import TrekStat from "../components/TrekStat"
 import {fetchStats} from "../actions/statsActions";
 
 const TrekStats = props => {
     useEffect(() => {
         props.fetchStats();
-        console.log("Fetch Stats: ", props.fetchStats())
+        // console.log("Fetch Stats: ", props.fetchStats())
     }, [])
     return (
         <div>
@@ -22,19 +23,20 @@ const TrekStats = props => {
                 //timeout={3000} //optional end
             />
             )}
+            {console.log("Data props: ", props.data)}
             <button onClick={props.fetchStats}>Fetch Stats</button>
-            {props.data && <h3>"{props.data}"</h3>}
+            <TrekStat />
             {props.error && <p className="error">{props.error}</p>}
         </div>
     )
 };
 
 const mapStateToProps = state => {
-    console.log("State to Props: ", state.stats);
+    console.log("State to Props: ", state);
     return {
-        data: state.stats.seasons,
-        isFetching: state.stats.isFetching,
-        error: state.stats.error
+        data: state.dataReducer,
+        isFetching: state.dataReducer.isFetching,
+        error: state.dataReducer.error
     };
 };
 

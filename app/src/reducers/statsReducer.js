@@ -3,7 +3,7 @@ const initialState = {
     isFetching: false,
     error: ""
 }
-console.log("Initial State: ", initialState)
+// console.log("Initial State: ", initialState)
 
 export const statsReducer = (state = initialState, action) => {
     switch (action.type){
