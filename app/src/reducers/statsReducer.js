@@ -7,25 +7,47 @@ const initialState = {
 
 export const statsReducer = (state = initialState, action) => {
     switch (action.type){
-        case "FETCH_STATS_START":
+        case "FETCH_SEASONS_START":
             console.log("State in reducer: ", state)
             return {
                 ...state,
                 isFetching: true
             };
-        case "FETCH_STATS_SUCCESS":
+        case "FETCH_SEASONS_SUCCESS":
             return {
                 ...state,
                 isFetching: false,
                 data: action.payload,
                 error: ""
             };
-        case "FETCH_STATS_FAILURE":
+        case "FETCH_SEASONS_FAILURE":
             return {
                 ...state,
                 isFetching: false,
                 error: action.payload
             };
+
+
+        case "FETCH_X_START":
+            return {
+                ...state,
+                isFetching: true
+            };
+            case "FETCH_X_SUCCESS":
+                return {
+                    ...state,
+                    isFetching: false,
+                    x: action.payload,
+                    error: ""
+                };
+            case "FETCH_X_FAILURE":
+                return {
+                    ...state,
+                    isFetching: false,
+                    error: action.payload
+                };
+
+                
         default:
             return state;
     }

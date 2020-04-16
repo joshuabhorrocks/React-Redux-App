@@ -6,11 +6,32 @@
   background-color: black;
   min-height: 10vh;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+.data-return {
+  display: flex;
+  flex-flow: column wrap;
+  height: 112vh;
+}
+
+.data-card {
+  width: 45%;
+  display: flex;
+  justify-content: center;
+  border: 1px solid gray;
+}
+
+.titles {
+  margin-right: 3%;
+}
+
+.episodes {
+  margin-top: 3.6%;
 }
 
 .error {
