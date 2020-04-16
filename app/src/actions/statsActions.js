@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const fetchStats = () => {
     return dispatch => {
-        dispatch({type: "FETCH_WAR_START"});
+        dispatch({type: "FETCH_STATS_START"});
         axios.get("http://stapi.co/api/v1/rest/season/search")
             .then(res => {
                 console.log("Axios request: ", res)

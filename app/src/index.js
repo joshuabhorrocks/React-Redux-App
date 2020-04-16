@@ -10,10 +10,10 @@ import App from './App';
 import './index.css';
 
 const store = createStore(rootReducer, applyMiddleware(thunk));
-// const rootElement = document.getElementById("root");
+const rootElement = document.getElementById("root");
 ReactDOM.render(
   <Provider store={store}>
     <App />
   </Provider>,
-  document.getElementById('root')
+  rootElement
 );
